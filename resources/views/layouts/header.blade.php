@@ -32,10 +32,10 @@
                 @if(Auth::guest())
                     <div class="navbar-item">
                         <div class="buttons">
-                            <a class="button is-warning">
+                            <a href="{{route('register')}}" class="button is-warning">
                                 <strong>Sign up</strong>
                             </a>
-                            <a class="button is-light">
+                            <a href="{{route('login')}}" class="button is-light">
                                 Log in
                             </a>
                         </div>
@@ -75,7 +75,10 @@
                                         Settings
                                     </a>
                                     <hr class="dropdown-divider">
-                                    <a href="#" class="dropdown-item">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                    <a onclick="event.preventDefault(); document.getElementById('logout-form').submit()" class="dropdown-item">
                                         <span class="icon is-small">
                                             <i class="m-r-10 fa fa-sign-out" aria-hidden="true"></i>
                                         </span>
