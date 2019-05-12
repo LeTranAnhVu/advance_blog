@@ -58,26 +58,26 @@
                                 <div class="dropdown-content">
                                     <a href="#" class="dropdown-item">
                                         <span class="icon is-small">
-                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                            <i class="m-r-10 fa fa-user" aria-hidden="true"></i>
                                         </span>
                                         Profile
                                     </a>
                                     <a class="dropdown-item">
                                         <span class="icon is-small">
-                                            <i class="fa fa-bell" aria-hidden="true"></i>
+                                            <i class="m-r-10 fa fa-bell" aria-hidden="true"></i>
                                         </span>
                                         Notifications
                                     </a>
                                     <a href="#" class="dropdown-item">
                                         <span class="icon is-small">
-                                            <i class="fa fa-cog" aria-hidden="true"></i>
+                                            <i class="m-r-10 fa fa-cog" aria-hidden="true"></i>
                                         </span>
                                         Settings
                                     </a>
                                     <hr class="dropdown-divider">
                                     <a href="#" class="dropdown-item">
                                         <span class="icon is-small">
-                                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                            <i class="m-r-10 fa fa-sign-out" aria-hidden="true"></i>
                                         </span>
                                         Logout
                                     </a>
