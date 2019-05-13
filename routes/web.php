@@ -18,3 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::prefix('manager')->namespace('Manager')->name('manager.')->middleware(['role:superadministrator|administrator|editor|author|contributor'])->group(function () {
+    Route::get('/','ManagerController@index');
+    Route::get('/dashboard', 'ManagerDashboardController@index')->name('dashboard');
+});

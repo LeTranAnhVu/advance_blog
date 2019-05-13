@@ -1,10 +1,9 @@
-<nav class="navbar has-shadow o-navbar--dark app-header" role="navigation" aria-label="main navigation">
+<nav class="navbar has-shadow o-navbar--dark manager-header" role="navigation" aria-label="main navigation">
     <div class="container">
         <div class="navbar-brand">
-            <a class="navbar-item" href="https://bulma.io">
+            <a class="navbar-item" href="/">
                 <img src="{{@asset('images/logo.png')}}">
             </a>
-
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
                data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
@@ -15,32 +14,13 @@
 
         <div id="navbarBasic" class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item">
-                    Home
-                </a>
-
-                <a class="navbar-item">
-                    Lifestyle
-                </a>
-
-                <a class="navbar-item">
-                    Programming
-                </a>
+{{--                <a class="navbar-item">--}}
+{{--                    Home--}}
+{{--                </a>--}}
             </div>
 
             <div class="navbar-end">
-                @if(Auth::guest())
-                    <div class="navbar-item">
-                        <div class="buttons">
-                            <a href="{{route('register')}}" class="button is-warning">
-                                <strong>Sign up</strong>
-                            </a>
-                            <a href="{{route('login')}}" class="button is-light">
-                                Log in
-                            </a>
-                        </div>
-                    </div>
-                @else
+                @if(Auth::user())
                     <div class="navbar-item">
                         <div class="avatar">
                             <img src="{{@asset('images/avatar.jpg')}}" alt="">

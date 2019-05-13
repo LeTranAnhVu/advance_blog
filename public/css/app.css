@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&amp;
 
-subset=vietnamese);@import url(https://fonts.googleapis.com/css?family=Jura:300,400,500,600,700&amp;subset=vietnamese);@charset "UTF-8";
+subset=vietnamese);@import url(https://fonts.googleapis.com/css?family=Jura:300,400,500,600,700&amp;subset=vietnamese);@import url(https://fonts.googleapis.com/css?family=Nunito:300,400,700,900&amp;subset=latin-ext,vietnamese);@charset "UTF-8";
 
 
 @font-face {
@@ -17913,20 +17913,22 @@ label.panel-block:hover {
 
 .o-navbar--dark {
   background: #2B2B2B;
+  webkit-box-shadow: 0 0.15rem 1.75rem 0 #555 !important;
+  box-shadow: 0 0.15rem 1.75rem 0 #555 !important;
 }
 
 .navbar-item img {
   max-height: none !important;
 }
 
-.navbar-start a.navbar-item {
+.app-header .navbar-start a.navbar-item {
   color: #ffffff;
   transition: all 0.3s linear;
   position: relative;
   font-size: 18px;
 }
 
-.navbar-start a.navbar-item:before {
+.app-header .navbar-start a.navbar-item:before {
   content: "";
   width: 0%;
   height: 2px;
@@ -17939,53 +17941,53 @@ label.panel-block:hover {
   transition: all 0.3s linear;
 }
 
-.navbar-start a.navbar-item .navbar-link {
+.app-header .navbar-start a.navbar-item .navbar-link {
   color: #ffffff;
 }
 
-.navbar-start a.navbar-item .navbar-link:hover,
-.navbar-start a.navbar-item .navbar-link .is-active {
+.app-header .navbar-start a.navbar-item .navbar-link:hover,
+.app-header .navbar-start a.navbar-item .navbar-link .is-active {
   color: #ffed4a;
   background: none;
 }
 
-.navbar-start a.navbar-item:hover,
-.navbar-start a.navbar-item .is-active {
+.app-header .navbar-start a.navbar-item:hover,
+.app-header .navbar-start a.navbar-item .is-active {
   color: #ffed4a;
   background: none;
 }
 
-.navbar-start a.navbar-item:hover:before,
-.navbar-start a.navbar-item .is-active:before {
+.app-header .navbar-start a.navbar-item:hover:before,
+.app-header .navbar-start a.navbar-item .is-active:before {
   width: 100%;
 }
 
-.navbar-end .navbar-item {
+.app-header .navbar-end .navbar-item {
   color: #ffffff;
   background: #636363;
 }
 
-.navbar-end .navbar-item .avatar {
+.app-header .navbar-end .navbar-item .avatar {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   overflow: hidden;
 }
 
-.navbar-end .navbar-item .avatar img {
+.app-header .navbar-end .navbar-item .avatar img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.navbar-end .navbar-item .buttons button {
+.app-header .navbar-end .navbar-item .buttons button {
   background: none;
   border: none;
   color: #ffffff;
 }
 
-.navbar-end .navbar-item .buttons button:focus {
+.app-header .navbar-end .navbar-item .buttons button:focus {
   outline: none;
 }
 
@@ -18375,15 +18377,108 @@ label.panel-block:hover {
 
 html,
 body {
-  font-family: "Lora", serif;
+  font-family: "Nunito", sans-serif;
   font-weight: normal;
-}
-
-header {
-  font-family: "Jura", sans-serif;
 }
 
 .is-muted {
   color: #b5b5b5;
+}
+
+.manager .manager-header .navbar-start .navbar-brand .navbar-item img {
+  width: 30px;
+  height: 30px;
+}
+
+.manager .manager-header .navbar-start a.navbar-item {
+  color: #ffffff;
+  transition: all 0.3s linear;
+  position: relative;
+  font-size: 18px;
+}
+
+.manager .manager-header .navbar-start a.navbar-item:before {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: #ffed4a;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  transition: all 0.3s linear;
+}
+
+.manager .manager-header .navbar-start a.navbar-item .navbar-link {
+  color: #ffffff;
+}
+
+.manager .manager-header .navbar-start a.navbar-item .navbar-link:hover,
+.manager .manager-header .navbar-start a.navbar-item .navbar-link .is-active {
+  color: #ffed4a;
+  background: none;
+}
+
+.manager .manager-header .navbar-start a.navbar-item:hover,
+.manager .manager-header .navbar-start a.navbar-item .is-active {
+  color: #ffed4a;
+  background: none;
+}
+
+.manager .manager-header .navbar-start a.navbar-item:hover:before,
+.manager .manager-header .navbar-start a.navbar-item .is-active:before {
+  width: 100%;
+}
+
+.manager .manager-header .navbar-end .navbar-item {
+  color: #ffffff;
+  background: #636363;
+}
+
+.manager .manager-header .navbar-end .navbar-item .avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.manager .manager-header .navbar-end .navbar-item .avatar img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.manager .manager-header .navbar-end .navbar-item .buttons button {
+  background: none;
+  border: none;
+  color: #ffffff;
+}
+
+.manager .manager-header .navbar-end .navbar-item .buttons button:focus {
+  outline: none;
+}
+
+.manager .manager-sidebar {
+  height: 100vh;
+  background: #4e73df;
+  width: 260px;
+}
+
+.manager .manager-sidebar .is-active {
+  background: #819be6;
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+.manager .manager-sidebar .menu-label {
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 1rem;
+}
+
+.manager .manager-sidebar .menu-list li a {
+  color: #dfdfdf;
 }
 
