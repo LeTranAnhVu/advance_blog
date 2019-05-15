@@ -17,8 +17,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('v1')->namespace('Api/v1')->name('api.v1.')->group(function () {
-    Route::prefix('auth')->namespace('Api/v1/Auth')->name('api.v1.auth')->group(function () {
-        Route::get('login','ApiAuthController@login');
+Route::prefix('v1')->namespace('Api\v1')->name('api.v1.')->group(function () {
+    Route::prefix('auth')->namespace('Auth')->name('auth.')->group(function () {
+        Route::post('login', 'ApiAuthController@login');
+        Route::post('logout', 'ApiAuthController@logout');
+        Route::get('test-permission', 'ApiAuthController@test')->middleware(['role:superadministrator']);
     });
+    Route::get('posts', 'PostController@index')->middleware(['role:superadministrator']);
+
 });
