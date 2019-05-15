@@ -8,9 +8,12 @@ window._ = require('lodash');
 
 try {
     // window.Popper = require('popper.js').default;
-    window.$ = window.jQuery = require('jquery');
+    window.$ = window.jQuery = require('startbootstrap-sb-admin-2/vendor/jquery/jquery.min');
+    require('startbootstrap-sb-admin-2/vendor/jquery-easing/jquery.easing.min');
+    require('startbootstrap-sb-admin-2/vendor/bootstrap/js/bootstrap.bundle.min');
+    require('startbootstrap-sb-admin-2/vendor/chart.js/Chart.bundle.min');
+    require('startbootstrap-sb-admin-2/js/sb-admin-2.min');
 
-    // require('bootstrap');
 } catch (e) {}
 
 /**

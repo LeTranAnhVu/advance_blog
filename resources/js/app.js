@@ -7,11 +7,9 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
-import Buefy from 'buefy';
+import App from './App.vue';
 
-Vue.use(Buefy);
-
-
+import router from './router/root';
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -30,7 +28,14 @@ Vue.use(Buefy);
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
-const app = new Vue({
-    el: '#app',
+router.beforeEach((to, from, next) => {
+    console.log('to', to);
+    console.log('from', from);
+    next();
 });
+
+
+new Vue({
+    router,
+    render: h => h(App),
+}).$mount('#app');
