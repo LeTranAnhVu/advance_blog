@@ -17,11 +17,12 @@ Route::get('/app/{any?}', function ($any = '') {
     return view('app.index');
 })->where('any', '.*');
 
+
 Auth::routes();
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('manager')->namespace('Manager')->name('manager.')->middleware(['role:superadministrator|administrator|editor|author|contributor'])->group(function () {

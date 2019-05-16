@@ -176,6 +176,9 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Laratrust\LaratrustServiceProvider::class,
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+
+
 
     ],
 
@@ -229,6 +232,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Laratrust'   => Laratrust\LaratrustFacade::class,
+        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
 
     ],
 
