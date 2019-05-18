@@ -8,7 +8,6 @@
 
             <!-- Content Wrapper -->
             <div id="content-wrapper" class="d-flex flex-column">
-
                 <!-- Main Content -->
                 <div id="content">
                     <!-- Topbar -->
@@ -54,14 +53,7 @@
             }
         },
         beforeCreate() {
-            this.$http.post('http://devblog.com/api/v1/admin/authenticated', {})
-                .then(res => {
-                    console.log(res);
-                })
-                .catch(err => {
-                    console.log(err);
-                    this.$router.push({name: 'login'});
-                })
+
         },
         created() {
             this.user.name = this.$local_storage.getItem('user-name');

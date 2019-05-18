@@ -88,7 +88,6 @@
                 this.$http.post('http://devblog.com/api/v1/auth/login', account)
                     .then(res=>{
                         const user = res.data.user;
-                        console.log('login thanh cong', user);
                         this.$local_storage.setItem('user-email',user.email);
                         this.$local_storage.setItem('user-name',user.name);
                         this.$router.push({name:'admin'});

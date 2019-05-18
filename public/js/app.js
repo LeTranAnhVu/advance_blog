@@ -1823,7 +1823,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -1841,19 +1840,7 @@ __webpack_require__.r(__webpack_exports__);
       user: {}
     };
   },
-  beforeCreate: function beforeCreate() {
-    var _this = this;
-
-    this.$http.post('http://devblog.com/api/v1/admin/authenticated', {}).then(function (res) {
-      console.log(res);
-    })["catch"](function (err) {
-      console.log(err);
-
-      _this.$router.push({
-        name: 'login'
-      });
-    });
-  },
+  beforeCreate: function beforeCreate() {},
   created: function created() {
     this.user.name = this.$local_storage.getItem('user-name');
     this.user.email = this.$local_storage.getItem('user-email');
@@ -2677,7 +2664,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       this.$http.post('http://devblog.com/api/v1/auth/login', account).then(function (res) {
         var user = res.data.user;
-        console.log('login thanh cong', user);
 
         _this.$local_storage.setItem('user-email', user.email);
 
@@ -48307,17 +48293,16 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App.vue */ "./resources/js/App.vue");
 /* harmony import */ var _router_root__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./router/root */ "./resources/js/router/root.js");
+/* harmony import */ var _guard_guard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./guard/guard */ "./resources/js/guard/guard.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
 
-_router_root__WEBPACK_IMPORTED_MODULE_1__["default"].beforeEach(function (to, from, next) {
-  // do nothing
-  next();
-});
+
 Vue.prototype.$http = window.$http;
 Vue.prototype.$local_storage = window.localStorage;
+_guard_guard__WEBPACK_IMPORTED_MODULE_2__["default"].call(Vue.prototype, _router_root__WEBPACK_IMPORTED_MODULE_1__["default"]);
 new Vue({
   router: _router_root__WEBPACK_IMPORTED_MODULE_1__["default"],
   render: function render(h) {
@@ -48906,6 +48891,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_template_id_06688fcd_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/guard/guard.js":
+/*!*************************************!*\
+  !*** ./resources/js/guard/guard.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return guard; });
+function guard(router) {
+  var self = this;
+  router.beforeEach(function (to, from, next) {
+    // do nothing
+    if (to.name === 'login') return next(); // route should protectd
+
+    self.$http.post('http://devblog.com/api/v1/admin/authenticated', {}).then(function (res) {
+      console.log('Authorized');
+      next();
+    })["catch"](function (err) {
+      console.log('login that bai');
+      console.log(err);
+      next({
+        name: 'login'
+      });
+    });
+  });
+}
 
 /***/ }),
 

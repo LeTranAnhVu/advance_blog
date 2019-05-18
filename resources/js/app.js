@@ -5,12 +5,13 @@ import App from './App.vue';
 
 import router from './router/root';
 
-router.beforeEach((to, from, next) => {
-    // do nothing
-    next();
-});
+import guard from './guard/guard';
+
+
 Vue.prototype.$http = window.$http;
 Vue.prototype.$local_storage = window.localStorage;
+
+guard.call(Vue.prototype,router);
 new Vue({
     router,
     render: h => h(App),
