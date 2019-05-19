@@ -70,6 +70,7 @@
 </template>
 
 <script>
+    import authService from '../../service/api/auth';
     export default {
         name: "Login",
         data() {
@@ -83,13 +84,14 @@
         },
         methods: {
             login(e){
+                const self =this;
                 event.preventDefault();
                 const account = {...this.account};
-                this.$http.post('http://devblog.com/api/v1/auth/login', account)
+                authService.login(account)
                     .then(res=>{
                         const user = res.data.user;
-                        this.$local_storage.setItem('user-email',user.email);
-                        this.$local_storage.setItem('user-name',user.name);
+                        self.$local_storage.setItem('user-email',user.email);
+                        self.$local_storage.setItem('user-name',user.name);
                         this.$router.push({name:'admin'});
                     })
                     .catch(err=>{

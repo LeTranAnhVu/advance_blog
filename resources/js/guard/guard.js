@@ -1,18 +1,18 @@
+import authService from '../service/api/auth';
 export default function guard(router) {
-    const self =this;
+    const self = this;
     router.beforeEach((to, from, next) => {
         // do nothing
         if (to.name === 'login') return next();
-
         // route should protectd
-        self.$http.post('http://devblog.com/api/v1/admin/authenticated', {})
+        authService.isAuthenticate()
             .then(res => {
                 console.log('Authorized');
+                self.toasted.show('Authorized', {type: 'success'});
                 next();
             })
             .catch(err=>{
-                console.log('login that bai');
-                console.log(err);
+                self.toasted.show('Unauthorized', {type: 'error'});
                 next({name: 'login'});
             })
     });

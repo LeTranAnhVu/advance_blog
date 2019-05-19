@@ -1,5 +1,5 @@
 require('./bootstrap');
-
+import Toasted from 'vue-toasted';
 window.Vue = require('vue');
 import App from './App.vue';
 
@@ -8,10 +8,17 @@ import router from './router/root';
 import guard from './guard/guard';
 
 
+Vue.use(Toasted, {
+    theme: 'toasted-primary',
+    duration: 2000
+});
+
 Vue.prototype.$http = window.$http;
 Vue.prototype.$local_storage = window.localStorage;
 
-guard.call(Vue.prototype,router);
+guard.call(Vue,router);
+
+
 new Vue({
     router,
     render: h => h(App),

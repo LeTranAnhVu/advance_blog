@@ -197,6 +197,7 @@
 </template>
 
 <script>
+    import authService from '../../service/api/auth';
     export default {
         name: "AdminTopBar",
         props: ['user'],
@@ -205,8 +206,7 @@
         },
         methods: {
             logout() {
-                console.log('thaot');
-                this.$http.post('http://devblog.com/api/v1/auth/logout', {})
+                authService.logout()
                     .then(res => {
                         console.log(res.data);
                         this.$local_storage.clear();
