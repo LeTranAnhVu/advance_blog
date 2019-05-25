@@ -48933,10 +48933,13 @@ function guard(router) {
     if (to.name === 'login') return next(); // route should protectd
 
     _service_api_auth__WEBPACK_IMPORTED_MODULE_0__["default"].isAuthenticate().then(function (res) {
-      console.log('Authorized');
-      self.toasted.show('Authorized', {
-        type: 'success'
-      });
+      if (from.name === 'login') {
+        console.log('Authorized');
+        self.toasted.show('Authorized', {
+          type: 'success'
+        });
+      }
+
       next();
     })["catch"](function (err) {
       self.toasted.show('Unauthorized', {
