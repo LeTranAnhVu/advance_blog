@@ -203,6 +203,7 @@
         props: ['user'],
         mounted() {
             console.log('day', this.user);
+
         },
         methods: {
             logout() {

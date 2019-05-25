@@ -2166,8 +2166,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "AdminMainContent"
+  name: "AdminMainContent",
+  created: function created() {
+    var _this = this;
+
+    this.$http.get('http://devblog.com/api/v1/admin/posts').then(function (res) {
+      console.log('data post', res.data);
+    }, function (err) {
+      _this.$router.push({
+        name: 'login'
+      });
+    });
+  }
 });
 
 /***/ }),
@@ -31580,7 +31617,11 @@ var staticRenderFns = [
                           staticClass:
                             "text-xs font-weight-bold text-primary text-uppercase mb-1"
                         },
-                        [_vm._v("Earnings (Monthly)")]
+                        [
+                          _vm._v(
+                            "Earnings\n                                (Monthly)\n                            "
+                          )
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
@@ -31621,7 +31662,11 @@ var staticRenderFns = [
                           staticClass:
                             "text-xs font-weight-bold text-success text-uppercase mb-1"
                         },
-                        [_vm._v("Earnings (Annual)")]
+                        [
+                          _vm._v(
+                            "Earnings\n                                (Annual)\n                            "
+                          )
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
@@ -31731,7 +31776,11 @@ var staticRenderFns = [
                           staticClass:
                             "text-xs font-weight-bold text-warning text-uppercase mb-1"
                         },
-                        [_vm._v("Pending Requests")]
+                        [
+                          _vm._v(
+                            "Pending\n                                Requests\n                            "
+                          )
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
@@ -32157,7 +32206,7 @@ var staticRenderFns = [
                   [_vm._v("unDraw")]
                 ),
                 _vm._v(
-                  ", a constantly updated collection of beautiful svg images that you can use completely free and without attribution!"
+                  ",\n                        a constantly updated collection of beautiful svg images that you can use completely free and\n                        without attribution!"
                 )
               ]),
               _vm._v(" "),
@@ -32170,7 +32219,11 @@ var staticRenderFns = [
                     href: "https://undraw.co/"
                   }
                 },
-                [_vm._v("Browse Illustrations on unDraw →")]
+                [
+                  _vm._v(
+                    "Browse Illustrations on unDraw\n                        →"
+                  )
+                ]
               )
             ])
           ]),
@@ -32185,13 +32238,13 @@ var staticRenderFns = [
             _c("div", { staticClass: "card-body" }, [
               _c("p", [
                 _vm._v(
-                  "SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and poor page performance. Custom CSS classes are used to create custom components and custom utility classes."
+                  "SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat\n                        and poor page performance. Custom CSS classes are used to create custom components and\n                        custom utility classes."
                 )
               ]),
               _vm._v(" "),
               _c("p", { staticClass: "mb-0" }, [
                 _vm._v(
-                  "Before working with this theme, you should become familiar with the Bootstrap framework, especially the utility classes."
+                  "Before working with this theme, you should become familiar with the Bootstrap\n                        framework, especially the utility classes."
                 )
               ])
             ])
@@ -48930,25 +48983,21 @@ function guard(router) {
   var self = this;
   router.beforeEach(function (to, from, next) {
     // do nothing
-    if (to.name === 'login') return next(); // route should protectd
-
-    _service_api_auth__WEBPACK_IMPORTED_MODULE_0__["default"].isAuthenticate().then(function (res) {
-      if (from.name === 'login') {
-        console.log('Authorized');
-        self.toasted.show('Authorized', {
-          type: 'success'
-        });
-      }
-
-      next();
-    })["catch"](function (err) {
-      self.toasted.show('Unauthorized', {
-        type: 'error'
-      });
-      next({
-        name: 'login'
-      });
-    });
+    // if (to.name === 'login') return next();
+    // // route should protectd
+    // authService.isAuthenticate()
+    //     .then(res => {
+    //         if (from.name === 'login') {
+    //             console.log('Authorized');
+    //             self.toasted.show('Authorized', {type: 'success'});
+    //         }
+    //         next();
+    //     })
+    //     .catch(err => {
+    //         self.toasted.show('Unauthorized', {type: 'error'});
+    //         next({name: 'login'});
+    //     })
+    return next();
   });
 }
 

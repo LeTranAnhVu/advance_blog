@@ -14,8 +14,10 @@ class ApiAuthController extends Controller
     {
         $cres = $request->only(['email', 'password']);
         $token = JWTAuth::attempt($cres);
-        if (JWTAuth::attempt($cres)) {
-            return response(['user' => JWTAuth::user()], 200)->withCookie(cookie('token', $token));
+        if ($token) {
+            if (JWTAuth::user()->hasRole(['superadministrator', 'administrator', 'author', 'editor'])) {
+                return response(['user' => JWTAuth::user()], 200)->withCookie(cookie('token', $token));
+            }
         }
         return response(['message' => 'Email or password invalid'], 400);
     }
