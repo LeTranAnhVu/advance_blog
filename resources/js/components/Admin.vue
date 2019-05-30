@@ -16,7 +16,7 @@
 
           <!-- Begin Page Content -->
           <!--<main-content/>-->
-          <main-post/>
+          <post-list/>
           <!-- /.container-fluid -->
 
         </div>
@@ -39,7 +39,7 @@
   import AdminTopBar from "./Admin/AdminTopBar";
   import AdminMainContent from "./Admin/AdminMainContent";
   import AdminFooter from "./Admin/AdminFooter";
-  import AdminMainPost from "./Admin/AdminPost/AdminMainPost";
+  import AdminPostList from "./Admin/Post/PostList";
 
   export default {
     name: "Admin",
@@ -49,7 +49,7 @@
       'main-content': AdminMainContent,
       'admin-footer': AdminFooter,
       // Build component post
-      'main-post': AdminMainPost,
+      'post-list': AdminPostList,
     },
     data() {
       return {
