@@ -10,6 +10,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         $this->call(LaratrustSeeder::class);
+//         $this->call(LaratrustSeeder::class);
+//         $this->call(PostsTableSeeder::class);
+//         $this->call(CategoriesTableSeeder::class);
+//         $this->call(TagsTableSeeder::class);
+//         $this->call(TagsPostsTableSeeder::class);
+         $this->call(CategoriesPostsTableSeeder::class);
     }
 }
