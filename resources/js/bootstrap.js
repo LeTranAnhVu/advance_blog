@@ -8,9 +8,12 @@ window._ = require('lodash');
 
 try {
     // window.Popper = require('popper.js').default;
-    window.$ = window.jQuery = require('jquery');
+    window.$ = window.jQuery = require('startbootstrap-sb-admin-2/vendor/jquery/jquery.min');
+    require('startbootstrap-sb-admin-2/vendor/bootstrap/js/bootstrap.bundle.min');
+    require('startbootstrap-sb-admin-2/vendor/jquery-easing/jquery.easing.min');
+    require('startbootstrap-sb-admin-2/js/sb-admin-2.min');
+    require('startbootstrap-sb-admin-2/vendor/chart.js/Chart.bundle.min');
 
-    // require('bootstrap');
 } catch (e) {}
 
 /**
@@ -19,9 +22,9 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = require('axios');
+window.$http = require('axios');
 
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.$http.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /**
  * Next we will register the CSRF Token as a common header with Axios so that
@@ -32,7 +35,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 let token = document.head.querySelector('meta[name="csrf-token"]');
 
 if (token) {
-    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+    window.$http.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+    window.$http.defaults.headers.common['Content-Type'] = 'application/json';
 } else {
     console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }

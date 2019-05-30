@@ -1,15 +1,28 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 require('./bootstrap');
-
+import Toasted from 'vue-toasted';
 window.Vue = require('vue');
-import Buefy from 'buefy';
+import App from './App.vue';
 
-Vue.use(Buefy);
+import router from './router/root';
+
+import guard from './guard/guard';
+
+
+Vue.use(Toasted, {
+    theme: 'toasted-primary',
+    duration: 2000
+});
+
+Vue.prototype.$http = window.$http;
+Vue.prototype.$local_storage = window.localStorage;
+
+guard.call(Vue,router);
+
+
+new Vue({
+    router,
+    render: h => h(App),
+}).$mount('#app');
 
 
 /**
@@ -30,7 +43,3 @@ Vue.use(Buefy);
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
-const app = new Vue({
-    el: '#app',
-});

@@ -1,3 +1,9 @@
+
+
+@import '~startbootstrap-sb-admin-2/vendor/fontawesome-free/css/all.min.css';
+@import '~startbootstrap-sb-admin-2/css/sb-admin-2.min.css';
+
+
 // Fonts
 //@import url('https://fonts.googleapis.com/css?family=Nunito');
 @import url('https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&amp;subset=vietnamese');
@@ -6,14 +12,13 @@
 
 // Variables
 @import 'variables';
-//font-awesome
-@import '~font-awesome/scss/font-awesome';
+////font-awesome
+//@import '~font-awesome/scss/font-awesome';
 // Bulma
-@import '~bulma/bulma';
+//@import '~bulma/bulma';
 // Buefy
-@import '~buefy/src/scss/buefy';
+//@import '~buefy/src/scss/buefy';
 // custom
-@import 'overrides';
+//@import 'overrides';
 @import 'helpers';
-@import 'styles';
-@import 'manager';
+//@import 'styles';
