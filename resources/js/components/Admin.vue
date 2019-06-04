@@ -15,8 +15,7 @@
           <!-- End of Topbar -->
 
           <!-- Begin Page Content -->
-          <!--<main-content/>-->
-          <post-list/>
+          <router-view></router-view>
           <!-- /.container-fluid -->
 
         </div>

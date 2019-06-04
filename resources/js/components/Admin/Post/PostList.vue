@@ -1,5 +1,6 @@
 <template>
   <div class="container-fluid main-post">
+    <!--title-->
     <div class="d-flex align-items-center mb-3">
       <h1 class="h3 mb-0 text-gray-800">Post</h1>
       <a href="#" class="btn-add btn btn-sm btn-primary shadow-sm"><i
@@ -24,6 +25,12 @@
     </div>
     <!--filter select post-->
     <div class="filter-select-post">
+      <a href="#" class="btn-filter btn btn-danger btn-icon-split mr-2">
+        <span class="icon text-white-50">
+          <i class="fas fa-trash-alt"></i>
+        </span>
+        <span class="text">Remove All</span>
+      </a>
       <select class="form-control form-control-sm">
         <option>All dates</option>
         <option>January 2019</option>
