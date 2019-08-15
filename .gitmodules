@@ -1,0 +1,3 @@
+[submodule "laradock_advance_blog"]
+	path = laradock_advance_blog
+	url = https://github.com/LaraDock/laradock.git
